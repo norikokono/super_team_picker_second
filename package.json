@@ -1,0 +1,28 @@
+{
+  "name": "super_team_picker_second",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "db:create": "createdb --echo super_team_picker_development",
+    "db:drop": "dropdb --if-exists --echo super_team_picker_development",
+    "db:migrate": "knex migrate:latest",
+    "db:rollback": "knex migrate:rollback",
+    "db:reset": "npm run db:drop && npm run db:create && npm run db:migrate"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "knex": "^0.21.15",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

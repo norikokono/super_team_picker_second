@@ -1,0 +1,53 @@
+<%- include("./partials/header") %>
+
+<div class="card">
+  <img src="<%= cohort.logo_url %>" class="card-img-top img-circle rounded-circle" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Team: <%= cohort.name %></h5>
+    <p class="card-text"><%= cohort.members %></p>
+    <div class="d-flex">
+      <a class="btn btn-secondary mr-2" href="/cohorts/<%= cohort.id %>/edit">Edit</a>
+      <form action="/cohorts/<%= cohort.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE" />
+        <input type="submit" class="btn btn-warning" value="Delete" />
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="row">
+    <div class="col-2"></div>
+      <div class="col-8" align="center">
+        <h4>Team Picker</h4>
+        <form method="post" action="/">
+          <h5><%= cohort.name %></h5>
+          <p><%= cohort.members %></p>
+          <hr>
+            <h6>Method</h6>
+              <div class="form-check col-md-8">
+                <input class="form-check-input" type="radio" name="method" id="teamcount" value="option1" checked>
+                <label class="form-check-label" for="teamCount">
+                  Team Count
+                </label>
+              </div>
+              <div class="form-check col-md-8">
+                <input class="form-check-input" type="radio" name="method" id="nomberPerTeam" value="option2">
+                <label class="form-check-label" for="numberPerTeam">
+                  Number per Team
+                </label>
+              </div><br>
+            <h6>Quantity</h6>
+          <input type="number" min="0" step="1" oninput="validity.valid||(value='');" name="quantity" placeholder="Quantity"><br><br>
+          <input type="submit" name="submit" value="Assign Teams">
+        </form><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+<%- include("./partials/footer") %>
+
+

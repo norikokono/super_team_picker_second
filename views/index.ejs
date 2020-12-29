@@ -1,0 +1,22 @@
+<%- include("./partials/header") %>
+
+<h1>🦙Welcome To Super Team Picker 🦙🦙</h1>
+
+<% cohorts.forEach(cohort => { %>
+  <div class="card">
+    <img src="<%= cohort.logo_url %>" class="card-img-top img-circle rounded-circle" alt="<%= cohort.name %>'s cohort">
+      <div class="card-body">
+          <h5 class="card-title">Team: <%= cohort.name %></h5>
+          <p class="card-text"><%= cohort.members %> </p>
+            <div class="d-flex">
+              <a href="/cohorts/<%= cohort.id %>" class="btn btn-info mr-2">Show</a>
+                <form action="/cohorts/<%= cohort.id %>" method="POST">
+                  <input type="hidden" name="_method" value="DELETE" />
+                  <input type="submit" class="btn btn-warning" value="Delete" />
+                </form>
+            </div>
+      </div>
+  </div>
+<% }) %>
+
+<%- include("./partials/footer") %>
